@@ -13,6 +13,13 @@
       // This is not very special (but it could be!)
       e.preventDefault()
       Roster.rotate()
+    },
+
+    add: function(e){
+      e.preventDefault();
+      var name = $('.name').val();
+      var age =  $('.age').val();
+      Roster.add({ name: name, age: age });
     }
   }
 
@@ -23,6 +30,12 @@
 
       // Example of the View connecting to a Controller action
       $('<button>').text('Rotate').on('click', People.controller.rotate),
+      $('<br>Name</br>'),
+      $('<input class="name">'),
+      $('<br>Age</br>'),
+      $('<input class="age">'),
+      $('<br>'),
+      $('<button id="add">').text('Add').on('click', People.controller.add),
 
       // Example of the View reading from the Model
       Roster.map(personView)
@@ -40,6 +53,7 @@
         Roster.remove(person.id)
       })
     )
+
   }
 
   // ---------------------------------------------------------

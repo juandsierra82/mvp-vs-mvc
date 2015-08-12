@@ -25,6 +25,12 @@
       var personId = $(e.currentTarget).attr('data-id')
       Roster.remove(personId)
     })
+    $view.on('click', '#add', function(e){
+      e.preventDefault();
+      var name = $('.name').val();
+      var age =  $('.age').val();
+      Roster.add({ name: name, age: age });
+    })
 
     // This is the function that puts the view on the page.
     this.render = function () {
@@ -46,7 +52,13 @@
     return $('<div class="people">').append(
       $('<h3>').text("All People:"),
       // Note how there is no click handler here
-      $('<button class="rotate">').text('Rotate')
+      $('<button class="rotate">').text('Rotate'),
+      $('<br>Name</br>'),
+      $('<input class="name">'),
+      $('<br>Age</br>'),
+      $('<input class="age">'),
+      $('<br>'),
+      $('<button id="add">Add</button>')
     )
   }
 

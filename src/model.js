@@ -16,6 +16,12 @@
     },
 
     add: function (person) {
+      if(!person.id){
+        var ids = peeps.map(function(peep){
+          return peep.id;
+        });
+        person.id = Math.max.apply(null, ids)+1;
+      }
       peeps.push(person)
       App.pubsub.emit('change:roster')
     },

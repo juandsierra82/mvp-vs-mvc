@@ -17,35 +17,35 @@ Open up `index.html` in your browser and take some time to explore the code. Aft
 
 Take a look at `src/models.js` and answer the following questions:
 
-1. How many Model methods emit a change event?
-2. How many emit no change event? Why wouldn't they?
-3. Why do you think this Model wants to keep the `peeps` data encapsulated?
+1. How many Model methods emit a change event? 3
+2. How many emit no change event? Why wouldn't they? 1, because it doesn't change the peeps array
+3. Why do you think this Model wants to keep the `peeps` data encapsulated? so that nothing else can modify it
 
 ## MVPresenter Questions
 
 Take a look at `src/m-v-presenter.js` and answer the following questions:
 
-1. How many View events does Presenter listen for?
-2. How many Model events does Presenter listen for?
-3. Where does everything start? In other words, where does the View actually get put on the page?
-4. What are the responsibilities of the Presenter?
-5. What are the responsibilities of the View?
+1. How many View events does Presenter listen for? 2
+2. How many Model events does Presenter listen for? 1
+3. Where does everything start? In other words, where does the View actually get put on the page? the mount function
+4. What are the responsibilities of the Presenter? listen for click events and tells model to change itself
+5. What are the responsibilities of the View? to append html on the page
 
 ## MVController Questions
 
 Take a look at `src/m-v-controller.js` and answer the following questions:
 
-1. How many controller actions are defined?
-2. How many controller actions does the View bind to itself? Where?
-3. How many Model manipulations does the View do on View events? Where?
-4. Where does everything start? In other words, where does the View actually get put on the page?
-5. What are the responsibilities of the Controller?
-6. What are the responsibilities of the View?
+1. How many controller actions are defined? 1
+2. How many controller actions does the View bind to itself? Where? 1, on line 26
+3. How many Model manipulations does the View do on View events? Where? 1, on line 40
+4. Where does everything start? In other words, where does the View actually get put on the page? the render function, line 51
+5. What are the responsibilities of the Controller? rotate the roster
+6. What are the responsibilities of the View? removes people from roster
 
 ## Software Design Questions
 
-1. Why is it "bad practice" for a model to directly update the view?
-2. What are some benefits for forcing the model to know nothing about the view?
+1. Why is it "bad practice" for a model to directly update the view? makes code less orgnaized, difficult to read and debug
+2. What are some benefits for forcing the model to know nothing about the view? it can't accidently change the view and the view can't accidently change the model's data
 
 ## Exercise
 
